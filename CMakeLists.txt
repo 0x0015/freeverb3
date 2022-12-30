@@ -139,7 +139,7 @@ set(freeverb_headers
 	fftw-3.3.10/api/fftw3.h
 )
 
-add_library(freeverb STATIC ${freeverb_sources} ${freeverb_headers})
+add_library(freeverb SHARED ${freeverb_sources} ${freeverb_headers})
 
 add_compile_definitions(LIBFV3_DEFAULT)
 add_compile_definitions(LIBFV3_FLOAT)
@@ -152,11 +152,13 @@ target_include_directories(freeverb PRIVATE libgdither)
 target_include_directories(freeverb PRIVATE .)
 
 option(BUILD_TESTS "" OFF)
-option(BUILD_SHARED_LIBS "" OFF)
+option(BUILD_SHARED_LIBS "" ON)
+option(ENABLE_THREADS "" ON)
 add_subdirectory(fftw-3.3.10)
 target_include_directories(freeverb PRIVATE fftw-3.3.10/api)
 
 target_link_libraries(freeverb PRIVATE fftw3)
+target_link_libraries(freeverb PRIVATE fftw3_threads)
 
 #set(CMAKE_VERBOSE_MAKEFILE ON)
 
