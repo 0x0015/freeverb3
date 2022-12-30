@@ -158,7 +158,7 @@ target_include_directories(freeverb PRIVATE fftw-3.3.10/api)
 
 target_link_libraries(freeverb PRIVATE fftw3)
 
-set(CMAKE_VERBOSE_MAKEFILE ON)
+#set(CMAKE_VERBOSE_MAKEFILE ON)
 
 #target_compile_features(DynamicMusicGen_exe PRIVATE cxx_std_17)
 #target_compile_features(DynamicMusicGen PRIVATE cxx_std_17)
