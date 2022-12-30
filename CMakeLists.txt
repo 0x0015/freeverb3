@@ -47,6 +47,12 @@ set(freeverb_sources
 	freeverb/utils.cpp
 	freeverb/zrev.cpp
 	freeverb/zrev2.cpp
+	libsamplerate2/samplerate.c
+	libsamplerate2/samplerate_common.c
+	libsamplerate2/src_common.c
+	libsamplerate2/src_linear.c
+	libsamplerate2/src_sinc.c
+	libsamplerate2/src_zoh.c
 )
 
 set(freeverb_headers
@@ -136,6 +142,18 @@ set(freeverb_headers
 	freeverb/zrev.hpp 
 	freeverb/zrev2_t.hpp 
 	freeverb/zrev2.hpp
+	libsamplerate2/common.h
+	libsamplerate2/common_c.h
+	libsamplerate2/fastest_coeffs.h
+	libsamplerate2/float_cast.h
+	libsamplerate2/high_qual_coeffs.h
+	libsamplerate2/mid_qual_coeffs.h
+	libsamplerate2/samplerate2.h
+	libsamplerate2/samplerate2_common.h
+	libsamplerate2/samplerate2_t.h
+	libsamplerate2/slow_high_qual_coeffs.h
+	libsamplerate2/slow_mid_qual_coeffs.h
+	libsamplerate2/type_float.h
 	fftw-3.3.10/api/fftw3.h
 )
 
