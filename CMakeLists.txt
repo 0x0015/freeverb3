@@ -135,7 +135,8 @@ set(freeverb_headers
 	freeverb/zrev_t.hpp 
 	freeverb/zrev.hpp 
 	freeverb/zrev2_t.hpp 
-	freeverb/zrev2.hpp 
+	freeverb/zrev2.hpp
+	fftw-3.3.10/api/fftw3.h
 )
 
 add_library(freeverb STATIC ${freeverb_sources} ${freeverb_headers})
@@ -149,6 +150,15 @@ target_include_directories(freeverb PRIVATE freeverb)
 target_include_directories(freeverb PRIVATE libsamplerate2)
 target_include_directories(freeverb PRIVATE libgdither)
 target_include_directories(freeverb PRIVATE .)
+
+option(BUILD_TESTS "" OFF)
+option(BUILD_SHARED_LIBS "" OFF)
+add_subdirectory(fftw-3.3.10)
+target_include_directories(freeverb PRIVATE fftw-3.3.10/api)
+
+target_link_libraries(freeverb PRIVATE fftw3)
+
+set(CMAKE_VERBOSE_MAKEFILE ON)
 
 #target_compile_features(DynamicMusicGen_exe PRIVATE cxx_std_17)
 #target_compile_features(DynamicMusicGen PRIVATE cxx_std_17)
