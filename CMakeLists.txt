@@ -154,11 +154,15 @@ target_include_directories(freeverb PRIVATE .)
 option(BUILD_TESTS "" OFF)
 option(BUILD_SHARED_LIBS "" ON)
 option(ENABLE_THREADS "" ON)
+option(ENABLE_FLOAT "" ON)
+#option(ENABLE_LONG_DOUBLE "" ON)
+option(DISABLE_FORTRAN "" ON)
+option(WITH_COMBINED_THREADS "" ON)
 add_subdirectory(fftw-3.3.10)
 target_include_directories(freeverb PRIVATE fftw-3.3.10/api)
 
-target_link_libraries(freeverb PRIVATE fftw3)
-target_link_libraries(freeverb PRIVATE fftw3_threads)
+target_link_libraries(freeverb PRIVATE fftw3f)
+#target_link_libraries(freeverb PRIVATE fftw3f_threads)
 
 #set(CMAKE_VERBOSE_MAKEFILE ON)
 
